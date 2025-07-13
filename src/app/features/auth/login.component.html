@@ -1,0 +1,105 @@
+<div class="login-container">
+  <div class="container-fluid vh-100">
+    <div class="row h-100">
+      <!-- Lado izquierdo - Información de la empresa -->
+      <div class="col-md-6 bg-primary text-white d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <h1 class="display-4 fw-bold mb-4">Sistema de Gestión</h1>
+          <h2 class="h3 mb-4">de Solicitudes</h2>
+          <p class="lead">
+            Gestiona eficientemente todas las solicitudes y tickets de tu empresa
+          </p>
+          <div class="mt-4">
+            <i class="bi bi-ticket-detailed display-1"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado derecho - Formulario de login -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div class="login-form w-100" style="max-width: 400px;">
+          <div class="text-center mb-4">
+            <h3 class="h4 fw-bold text-dark">Iniciar Sesión</h3>
+            <p class="text-muted">Ingrese sus credenciales para acceder</p>
+          </div>
+
+          <!-- Mensaje de error -->
+          @if (errorMessage) {
+            <div class="alert alert-danger" role="alert">
+              <i class="bi bi-exclamation-triangle me-2"></i>
+              {{ errorMessage }}
+            </div>
+          }
+
+          <!-- Formulario -->
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold">
+                <i class="bi bi-envelope me-2"></i>Correo Electrónico
+              </label>
+              <input 
+                type="email" 
+                class="form-control"
+                [class.is-invalid]="hasError('correoElectronico')"
+                id="email"
+                formControlName="correoElectronico"
+                placeholder="ejemplo@empresa.com"
+                autocomplete="email">
+              
+              @if (hasError('correoElectronico')) {
+                <div class="invalid-feedback">
+                  {{ getFieldError('correoElectronico') }}
+                </div>
+              }
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-4">
+              <label for="password" class="form-label fw-semibold">
+                <i class="bi bi-lock me-2"></i>Contraseña
+              </label>
+              <input 
+                type="password" 
+                class="form-control"
+                [class.is-invalid]="hasError('contraseña')"
+                id="password"
+                formControlName="contraseña"
+                placeholder="••••••••"
+                autocomplete="current-password">
+              
+              @if (hasError('contraseña')) {
+                <div class="invalid-feedback">
+                  {{ getFieldError('contraseña') }}
+                </div>
+              }
+            </div>
+
+            <!-- Botón de login -->
+            <button 
+              type="submit" 
+              class="btn btn-primary w-100 py-2 fw-semibold"
+              [disabled]="isLoading">
+              
+              @if (isLoading) {
+                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                Iniciando sesión...
+              } @else {
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                Iniciar Sesión
+              }
+            </button>
+          </form>
+
+          <!-- Enlaces adicionales -->
+          <div class="text-center mt-4">
+            <small class="text-muted">
+              ¿Problemas para acceder? 
+              <a href="#" class="text-decoration-none">Contacte al administrador</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
