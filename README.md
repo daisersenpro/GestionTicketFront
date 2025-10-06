@@ -1,6 +1,8 @@
-# GestionSolicitudesFront
+# SenPro MultiDesk - Sistema de Gestión de Tickets Empresarial
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Sistema de Gestión de Tickets Empresarial Multiempresa desarrollado en Angular. 
+
+Este proyecto fue generado usando [Angular CLI](https://github.com/angular/angular-cli) versión 19.2.9.
 
 ## Development server
 

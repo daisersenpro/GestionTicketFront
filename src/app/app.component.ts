@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'gestion-solicitudes-front';
+  title = 'SenPro MultiDesk - Sistema de Gestión de Tickets Empresarial';
 }
